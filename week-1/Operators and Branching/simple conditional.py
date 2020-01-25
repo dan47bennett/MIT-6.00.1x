@@ -1,5 +1,3 @@
-# this is the first weeks file
-
 # example of conditionals
 
 x = int(input('Enter an integer: '))
