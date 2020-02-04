@@ -118,8 +118,53 @@ def gcdRecur(a, b):
         return a
     else:
         return gcdRecur(b, a % b)
+
+
+# recursive Fibonacci
+
+def fibonacci(x):
+    if x == 0 or x == 1:
+        return 1
+    else:
+        return fibonacci(x - 1) + fibonacci(x - 2)
+
+
+# recursive palindrome detection
+
+def isPalindrome(s):
+    def toChars(s):
+        s = s.lower()
+        charString = ''
+        for char in s:
+            if char in "abcdefghijklmnopqrstuvwxyz":
+                charString = charString + char
+        return charString
+    def isPal(s):
+        if len(s) <= 1:
+            return True
+        else:
+            return s[0] == s[-1] and isPal(s[1:-1])
+    return isPal(toChars(s))
+
+
+# search for character in string recursively
+
+def isIn(char, aStr):
+    '''
+    char: a single character
+    aStr: an alphabetized string
     
-
-
+    returns: True if char is in aStr; False otherwise
+    '''
+    if len(aStr) <= 1 and aStr != char:
+        return False
+    middleIndex = int(len(aStr) / 2)
+    middleCharacter = aStr[middleIndex]
+    if middleCharacter == char:
+        return True
+    if char < middleCharacter:
+        return isIn(char, aStr[:middleIndex])
+    if char > middleCharacter:
+        return isIn(char, aStr[middleIndex:])
 
 
