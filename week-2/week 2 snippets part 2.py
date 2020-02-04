@@ -67,8 +67,6 @@ def recurPower(base, exp):
         return base * recurPower(base, exp - 1)
 
 
-
-
 # towers of hanoi code
 
 def printMove(origin, destination):
@@ -81,5 +79,47 @@ def towers(n, origin, destination, spare):
         towers(n - 1, origin, spare, destination)
         towers(1, origin, destination, spare)
         towers(n - 1, spare, destination, origin)
+
+
+# iterative gcd function
+        
+
+def gcdIter(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+    if a == b:
+        return a
+    if a > b:
+        gcd = b
+        for i in range(b):
+            if a % gcd == 0 and b % gcd == 0:
+                return gcd
+            else:
+                gcd -= 1
+    if a < b:
+        gcd = a
+        for i in range(b):
+            if a % gcd == 0 and b % gcd == 0:
+                return gcd
+            else:
+                gcd -= 1
+
+
+def gcdRecur(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+    if b == 0:
+        return a
+    else:
+        return gcdRecur(b, a % b)
+    
+
+
 
 
