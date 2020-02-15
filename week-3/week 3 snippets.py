@@ -1,6 +1,3 @@
-test = ('I', 'am', 'a', 'test', 'tuple')
-
-
 def oddTuples(aTup):
     '''
     aTup: a tuple
@@ -14,4 +11,13 @@ def oddTuples(aTup):
     return finalTuple
 
 
-print(oddTuples(test))
+# applying a function to each element in a list
+def applyToEach(L, f):
+    for i in range(len(L)):
+        L[i] = f(L[i])
+
+
+# applying each function in a list to a variable
+def applyFunctions(L, x):
+    for f in L:
+        print(f(x))
