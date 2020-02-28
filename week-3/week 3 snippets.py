@@ -34,7 +34,17 @@ def lyricsToFrequencies(lyrics):
     return wordDictionary
 
 
-# find 
+# find most common words in a dictionary
+def mostCommonWords(freqs):
+    values = freqs.values()
+    best = max(values)
+    words = []
+    for k in freqs:
+        if freqs[k] == best:
+            words.append(k)
+    return (words, best)
+    
+    
 
 sheLovesYou = ['she', 'loves', 'you', 'yeah', 'yeah', 'yeah',
 'she', 'loves', 'you', 'yeah', 'yeah', 'yeah',
@@ -53,4 +63,5 @@ sheLovesYou = ['she', 'loves', 'you', 'yeah', 'yeah', 'yeah',
 
 beatles = lyricsToFrequencies(sheLovesYou)
 
-print(beatles)
+
+print(mostCommonWords(beatles))
